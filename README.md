@@ -9,68 +9,58 @@ For the R-package dependencies, you can load on most of dependencies packages on
 If the dependencies are not installed correctly, please install them by yourself. In my experience, the scDEA can't install BPSC, DEsingle and zingeR automatically on Windows system but can load all on Ubuntu 16.04.
  Hence, we advise, users should install BPSC, DEsingle and zingeR firstly by the following instruction when you use scDEA on windows system.
 
-## BPSC (https://github.com/nghiavtr/BPSC)
-library(devtools)
-install_github("nghiavtr/BPSC")
+## BPSC (https://github.com/nghiavtr/BPSC)  
 
-## DEsingle (http://www.bioconductor.org/packages/release/bioc/html/DEsingle.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+devtools::install_github("nghiavtr/BPSC")
+
+## DEsingle (http://www.bioconductor.org/packages/release/bioc/html/DEsingle.html)  
+
 BiocManager::install("DEsingle")
 
 ## DESeq2 (http://www.bioconductor.org/packages/release/bioc/html/DESeq2.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("DESeq2")
 
 ## edgeR (http://www.bioconductor.org/packages/release/bioc/html/edgeR.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("edgeR")
 
 ## MAST (http://www.bioconductor.org/packages/release/bioc/html/MAST.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("MAST")
 
 ## monocle (http://www.bioconductor.org/packages/release/bioc/html/monocle.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("monocle")
 
 ## scDD (http://www.bioconductor.org/packages/release/bioc/html/scDD.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("scDD")
 
 ## limma (http://www.bioconductor.org/packages/release/bioc/html/limma.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("limma")
 
 ## Seurat (http://www.bioconductor.org/packages/release/bioc/html/Seurat.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("Seurat")
 
 ## zingeR (https://github.com/statOmics/zingeR/)
-library(devtools)
-install_github("statOmics/zingeR")
+
+devtools::install_github("statOmics/zingeR")
 
 ## SingleCellExperiment (http://www.bioconductor.org/packages/release/bioc/html/SingleCellExperiment.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+
 BiocManager::install("SingleCellExperiment")
 
-## scater (http://www.bioconductor.org/packages/release/bioc/html/scater.html)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+## scater (http://www.bioconductor.org/packages/release/bioc/html/scater.html)  
+
 BiocManager::install("scater")
 
 ## aggregation (https://cran.r-project.org/web/packages/aggregation/)
-install.packages("aggregation")
+install.packages("aggregation")  
 
- After upper step, you can use the following commands to install scDEA from Github.
+After upper step, you can use the following commands to install scDEA from Github.
  
  # Step 1. Install the devtools package. Invoke R and then type
  
@@ -82,8 +72,7 @@ install.packages("aggregation")
  
  # Step 3. Install the scDEA package from Github.
  
- devtools::install_github("Zhangxf-ccnu/scDEA", subdir = "pkg")
- 
+ devtools::install_github("Zhangxf-ccnu/scDEA")
  
 # Step 4.  Useage
  Load the library scDEA in the R console, by running
@@ -101,7 +90,7 @@ install.packages("aggregation")
  
  combination.Pvals <- lancaster.combination(Pvals, weight = TRUE, trimmed = 0.2)
  
- adjusted.Pvals <- p.adjust(combination.Pvals, adjusted.method = "bonferroni")
+ adjusted.Pvals <- scDEA.p.adjust(combination.Pvals, adjusted.method = "bonferroni")
  
  # Step 6. Run Shiny application locally.  
  
